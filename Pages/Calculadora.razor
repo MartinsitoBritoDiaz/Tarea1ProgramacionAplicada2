@@ -1,0 +1,43 @@
+﻿@page "/Calculadora"
+
+
+    <div>
+        <h2>Calculadora</h2>
+
+        <div>
+            <label for="firstInput" class="form-label">Digite un numero</label>
+            <input id="firstInput" type="text" @bind="firstNumber" @bind:event="oninput" />
+
+            <br />
+            
+            <label for="secondInput" class="form-label">Digite un numero</label>
+            <input id="secondInput" type="text" @bind="secondNumber" @bind:event="oninput" />
+
+            <div>
+                <br />
+                <button class="btn btn-primary" @onclick="Calcular">Calcular</button>
+            </div>
+
+            <div>
+                <p>La suma es: @suma </p>
+                <p>La resta es: @resta </p>
+                <p>La multiplicación es: @multiplicacion </p>
+            </div>
+        </div>
+    </div>
+
+
+@code {
+    private float firstNumber { get; set; }
+    private float secondNumber { get; set; }
+    private float suma { get; set; }
+    private float resta { get; set; }
+    private float multiplicacion { get; set; }
+
+    private void Calcular()
+    {
+        suma = firstNumber + secondNumber;
+        resta = firstNumber - secondNumber;
+        multiplicacion = firstNumber * secondNumber;
+    }
+}
